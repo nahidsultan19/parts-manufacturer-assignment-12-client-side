@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Part = ({ part }) => {
     const { name, img, price, minQuantity, availableQuantity, des } = part;
+    const navigate = useNavigate();
+
+    const handleBuy = id => {
+        navigate(`/purchase/${id}`)
+    }
+
     return (
         <div class="card max-w-lg bg-base-100 shadow-xl mx-5">
             <figure class="px-10 pt-10">
@@ -16,7 +23,7 @@ const Part = ({ part }) => {
                     <p>availableQuantity:{availableQuantity}</p>
                 </div>
                 <div class="card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <button onClick={() => handleBuy(name)} class="btn btn-primary">Buy Now</button>
                 </div>
             </div>
         </div>
