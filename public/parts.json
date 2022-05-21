@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Mouse",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 200,
+        "img": "https://i.ibb.co/Cs2NT5M/mouse.jpg",
+        "des": " A computer mouse is a handheld hardware input device that controls a cursor in a GUI"
+    },
+    {
+        "id": 2,
+        "name": "Headphone",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 100,
+        "img": "https://i.ibb.co/qrWfvS8/headphone2.jpg",
+        "des": "Computer headphone use for computer sound system"
+    },
+    {
+        "id": 3,
+        "name": "Keyboard",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 150,
+        "img": "https://i.ibb.co/BgVPqsW/keyboard.jpg",
+        "des": "A computer keyboard is a peripheral input device modeled after the typewriter keyboard "
+    },
+    {
+        "id": 4,
+        "name": "Ram",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 250,
+        "img": "https://i.ibb.co/QXtd4ds/ram.jpg",
+        "des": " Computer random access memory (RAM) is one of the most important components in determining your system's performance. "
+    },
+    {
+        "id": 5,
+        "name": "Processor",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 500,
+        "img": "https://i.ibb.co/wQ3DZLt/processor.jpg",
+        "des": "A processor (CPU) is the logic circuitry that responds to and processes the basic instructions that drive a computer."
+    },
+    {
+        "id": 6,
+        "name": "Mouse",
+        "minQuantity": 10,
+        "availableQuantity": 50,
+        "price": 200,
+        "img": "https://i.ibb.co/Cs2NT5M/mouse.jpg",
+        "des": " A computer mouse is a handheld hardware input device that controls a cursor in a GUI"
+    }
+]
