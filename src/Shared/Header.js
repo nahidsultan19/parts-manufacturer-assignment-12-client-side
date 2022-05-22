@@ -17,6 +17,7 @@ const Header = () => {
         <li><NavLink to='/services'>Services</NavLink></li>
         <li><NavLink to='/contact'>Contact</NavLink></li>
         <li>{user ? <button onClick={logout} className='btn btn-ghost'>Logout</button> : <NavLink to='/login'>Login</NavLink>}</li>
+        <li className='mt-3'>{user?.displayName}</li>
     </>
     return (
         <div className="navbar bg-base-200">

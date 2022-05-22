@@ -1,24 +1,23 @@
 import React from 'react';
+import { signInWithGoogle, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useForm } from "react-hook-form";
 
-const Login = () => {
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
-    const navigate = useNavigate();
-
+    const navigate = useNavigate()
 
     if (user) {
-        console.log(user)
+        console.log(user);
     }
 
     const onSubmit = data => {
-        console.log(data)
-        signInWithEmailAndPassword(data.email, data.password);
+        console.log(data);
+        createUserWithEmailAndPassword(data.email, data.password);
         navigate('/')
     };
 
@@ -27,7 +26,12 @@ const Login = () => {
             <div class="card flex-shrink-0 shadow-2xl bg-base-100">
                 <div class="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
-
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Name</span>
+                            </label>
+                            <input type="text" placeholder="Your Name" class="input input-bordered w-full max-w-xs"{...register("name")} />
+                        </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">Email</span>
@@ -66,9 +70,9 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-                        <button class="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
+                        <button class="btn btn-success text-white font-bold w-full max-w-xs">Register</button>
                     </form>
-                    <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Create an Account</Link></p>
+                    <p>Already have an Account?<Link to='/login' className='btn btn-link'>SignIn</Link></p>
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} class="btn btn-outline w-full">Continue with google</button>
                 </div>
@@ -77,4 +81,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
