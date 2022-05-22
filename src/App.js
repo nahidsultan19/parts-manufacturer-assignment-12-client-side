@@ -14,6 +14,7 @@ import Profile from './Components/Dashboard/Profile';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Users from './Components/Dashboard/Users';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route index element={<Orders />} />
           <Route path='add-review' element={<AddReview />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='users' element={<Users />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
