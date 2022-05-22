@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = (id) => {
@@ -26,8 +27,27 @@ const Purchase = (id) => {
             qunatity: event.target.qunatity.value
 
         }
-        console.log(order);
+
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('Order successfully placed')
+            })
     }
+
+    // const handleQuantity = (event) => {
+    //     const qunatity = event.target.qunatity.value;
+    //     if (qunatity < 10 || qunatity > 50) {
+    //         alert('You can selete items only less than 50 and greater than 10 ');
+    //     }
+    // }
 
     return (
         <div className='min-h-screen w-80 mx-auto'>

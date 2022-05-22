@@ -1,23 +1,29 @@
+import { updateProfile } from 'firebase/auth';
 import React from 'react';
-import { signInWithGoogle, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
 
+    const [token] = useToken(user || googleUser)
+
     const navigate = useNavigate()
 
-    if (user) {
-        console.log(user);
+    if (token) {
+        // console.log(user || googleUser);
+        navigate('/')
     }
 
-    const onSubmit = data => {
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name })
         console.log(data);
-        createUserWithEmailAndPassword(data.email, data.password);
         navigate('/')
     };
 

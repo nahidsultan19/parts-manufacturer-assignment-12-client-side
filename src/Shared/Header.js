@@ -18,7 +18,7 @@ const Header = () => {
         <li><NavLink to='/contact'>Contact</NavLink></li>
         {user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}
         <li>{user ? <button onClick={logout} className='btn btn-ghost'>Logout</button> : <NavLink to='/login'>Login</NavLink>}</li>
-        <li className='mt-3'>{user?.displayName}</li>
+        <li className=''>{user?.displayName}</li>
     </>
     return (
         <div className="navbar bg-base-200">
@@ -33,7 +33,7 @@ const Header = () => {
                 </div>
                 <Link to='/' class="btn btn-ghost normal-case text-xl">Computer Parts</Link>
             </div>
-            <div class="navbar-end hidden lg:flex">
+            <div class="navbar hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">
                     {nav}
                 </ul>

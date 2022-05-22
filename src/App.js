@@ -12,6 +12,9 @@ import Orders from './Components/Dashboard/Orders';
 import AddReview from './Components/Dashboard/AddReview';
 import Profile from './Components/Dashboard/Profile';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <div>
@@ -23,7 +26,7 @@ function App() {
         <Route path='/services' element={<p>Services</p>} />
         <Route path='/purchase/:name' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-          <Route path='orders' element={<Orders />} />
+          <Route index element={<Orders />} />
           <Route path='add-review' element={<AddReview />} />
           <Route path='profile' element={<Profile />} />
         </Route>
@@ -31,6 +34,7 @@ function App() {
         <Route path='/register' element={<Register />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
