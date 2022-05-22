@@ -6,7 +6,11 @@ import Footer from './Shared/Footer';
 import Purchase from './Components/Home/Purchase';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
-import PrivateAuth from './Components/Login/PrivateAuth';
+import PrivateRoute from './Components/Login/PrivateRoute';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Orders from './Components/Dashboard/Orders';
+import AddReview from './Components/Dashboard/AddReview';
+import Profile from './Components/Dashboard/Profile';
 
 function App() {
   return (
@@ -17,11 +21,12 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<p>About</p>} />
         <Route path='/services' element={<p>Services</p>} />
-        <Route path='/purchase/:name' element={
-          <PrivateAuth>
-            <Purchase />
-          </PrivateAuth>
-        } />
+        <Route path='/purchase/:name' element={<PrivateRoute><Purchase /></PrivateRoute>} />
+        <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
+          <Route path='orders' element={<Orders />} />
+          <Route path='add-review' element={<AddReview />} />
+          <Route path='profile' element={<Profile />} />
+        </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>

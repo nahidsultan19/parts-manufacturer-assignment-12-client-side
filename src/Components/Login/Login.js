@@ -14,10 +14,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
-        if (user) {
+        if (user || googleUser) {
             navigate(from, { replace: true })
         }
-    }, [user, from, navigate])
+    }, [user, googleUser, from, navigate])
 
     const onSubmit = data => {
         console.log(data)
