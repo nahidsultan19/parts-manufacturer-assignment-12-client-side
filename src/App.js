@@ -8,7 +8,7 @@ import Login from './Components/Login/Login';
 import Register from './Components/Login/Register';
 import PrivateRoute from './Components/Login/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard';
-import Orders from './Components/Dashboard/Orders';
+import MyOrders from './Components/Dashboard/MyOrders';
 import AddReview from './Components/Dashboard/AddReview';
 import Profile from './Components/Dashboard/Profile';
 
@@ -28,7 +28,7 @@ function App() {
         <Route path='/services' element={<p>Services</p>} />
         <Route path='/purchase/:name' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-          <Route index element={<Orders />} />
+          <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
           <Route path='profile' element={<Profile />} />
           <Route path='manage-orders' element={<p>Manage all Orders</p>} />

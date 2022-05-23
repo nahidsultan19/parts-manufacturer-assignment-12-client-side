@@ -15,9 +15,9 @@ const Dashboard = () => {
                 <h2 className='text-3xl font-bold text-purple-500'>Welcome to Dashboard</h2>
                 <Outlet />
             </div>
-            <div class="drawer-side bg-base-200">
+            <div class="drawer-side">
                 <label for="dashboard-sidebar" class="drawer-overlay"></label>
-                <ul class="menu p-4 overflow-y-auto w-80 text-base-content">
+                <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content">
                     {!admin && <>
                         <li><Link to='/dashboard'>My Orders</Link></li>
                         <li><Link to='/dashboard/add-review'>Add a Review</Link></li>

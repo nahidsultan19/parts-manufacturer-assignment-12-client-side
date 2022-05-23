@@ -24,7 +24,7 @@ const Purchase = (id) => {
             name: name,
             address: event.target.address.value,
             phone: event.target.phone.value,
-            qunatity: event.target.qunatity.value
+            quantity: event.target.quantity.value
 
         }
 
@@ -57,7 +57,7 @@ const Purchase = (id) => {
                 <input type="text" value={user?.email} class="input input-bordered w-full max-w-xs mt-2" disabled />
                 <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs mt-2" />
                 <input type="text" name='phone' placeholder="Phone" class="input input-bordered w-full max-w-xs mt-2" />
-                <input type="number" name='qunatity' class="input input-bordered w-full max-w-xs mt-2" />
+                <input type="number" name='quantity' class="input input-bordered w-full max-w-xs mt-2" />
 
                 <button class="btn w-full max-w-xs mt-2">place order</button>
             </form>
