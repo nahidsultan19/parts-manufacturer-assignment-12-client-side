@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Users from './Components/Dashboard/Users';
 import RequireAdmin from './Components/Login/RequireAdmin';
+import Blogs from './Components/Home/Blogs';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<p>About</p>} />
         <Route path='/services' element={<p>Services</p>} />
+        <Route path='/blogs' element={<Blogs />} />
         <Route path='/purchase/:name' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
           <Route index element={<MyOrders />} />

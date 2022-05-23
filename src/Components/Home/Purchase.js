@@ -7,14 +7,14 @@ import auth from '../../firebase.init';
 const Purchase = (id) => {
     const { name } = useParams();
     const [user] = useAuthState(auth);
+    const [part, setPart] = useState({});
 
-    // const [part, setPart] = useState({});
     // useEffect(() => {
     //     const url = `http://localhost:5000/part/${id}`;
     //     fetch(url)
     //         .then(res => res.json())
-    //         .then(data => setPart(data))
-    // }, [])
+    //         .then(data => console.log(data))
+    // }, [id])
 
     const handleOrder = event => {
         event.preventDefault()
@@ -42,16 +42,21 @@ const Purchase = (id) => {
             })
     }
 
-    // const handleQuantity = (event) => {
-    //     const qunatity = event.target.qunatity.value;
-    //     if (qunatity < 10 || qunatity > 50) {
-    //         alert('You can selete items only less than 50 and greater than 10 ');
-    //     }
-    // }
 
     return (
         <div className='min-h-screen w-80 mx-auto'>
             <h2 className='text-center text-2xl'>Purchase: {name}</h2>
+            <label for="my-modal-3" class="btn modal-button">Parts Detail</label>
+
+            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box relative">
+                    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 class="text-lg font-bold">{name}</h3>
+                    <p class="py-4">{ }</p>
+                </div>
+            </div>
+
             <form onSubmit={handleOrder}>
                 <input type="text" value={user?.displayName} class="input input-bordered w-full max-w-xs" />
                 <input type="text" value={user?.email} class="input input-bordered w-full max-w-xs mt-2" disabled />
@@ -61,7 +66,7 @@ const Purchase = (id) => {
 
                 <button class="btn w-full max-w-xs mt-2">place order</button>
             </form>
-        </div>
+        </div >
     );
 };
 

@@ -17,6 +17,7 @@ const Header = () => {
         <li><NavLink to='/about'>About</NavLink></li>
         <li><NavLink to='/services'>Services</NavLink></li>
         <li><NavLink to='/contact'>Contact</NavLink></li>
+        <li><NavLink to='/blogs'>Blogs</NavLink></li>
         {user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}
         <li>{user ? <button onClick={logout} className='btn btn-ghost'>Logout</button> : <NavLink to='/login'>Login</NavLink>}</li>
         <li className=''>{user?.displayName}</li>
