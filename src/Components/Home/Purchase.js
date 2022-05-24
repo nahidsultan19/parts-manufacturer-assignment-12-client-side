@@ -4,25 +4,26 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const Purchase = (id) => {
-    const { name } = useParams();
+const Purchase = () => {
+    const { id } = useParams();
     const [user] = useAuthState(auth);
-    const [part, setPart] = useState({});
+    const [parts, setParts] = useState({});
 
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/part/${name}`;
-    //     console.log(url);
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }, [name])
+    useEffect(() => {
+        const url = `http://localhost:5000/parts/${id}`;
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setParts(data))
+    }, [id])
 
     const handleOrder = event => {
         event.preventDefault()
         const order = {
             email: user?.email,
             userName: user?.displayName,
-            name: name,
+            name: parts.name,
+            price: parts.price,
             address: event.target.address.value,
             phone: event.target.phone.value,
             quantity: event.target.quantity.value
@@ -46,15 +47,18 @@ const Purchase = (id) => {
 
     return (
         <div className='min-h-screen w-80 mx-auto'>
-            <h2 className='text-center text-2xl'>Purchase: {name}</h2>
-            <label for="my-modal-3" class="btn modal-button">Parts Detail</label>
+            {/* <h2 className='text-center text-2xl'>Purchase: {id}</h2> */}
+            <label for="my-modal-3" class="btn modal-button w-full max-w-xs my-10">Parts Detail</label>
 
             <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box relative">
                     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold">{name}</h3>
-                    <p class="py-4">{ }</p>
+                    <img className='w-80' src={parts.img} alt="" />
+                    <h3 class="text-2xl font-bold">{parts.name}</h3>
+                    <p class="py-4">Price:${parts.price}</p>
+                    <p>minQuantity:{parts.minQuantity}</p>
+                    <p>availableQuantity:{parts.availableQuantity}</p>
                 </div>
             </div>
 

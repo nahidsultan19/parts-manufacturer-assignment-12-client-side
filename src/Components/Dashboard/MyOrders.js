@@ -9,7 +9,12 @@ const MyOrders = () => {
     const [isReload, setIsReload] = useState(false)
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`)
+            fetch(`http://localhost:5000/order?email=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
                 .then(data => setOrders(data))
         }
@@ -48,7 +53,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr>
+                            orders?.map((order, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{order.userName}</td>
                                 <td>{order.email}</td>

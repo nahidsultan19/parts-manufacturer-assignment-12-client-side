@@ -30,7 +30,7 @@ function App() {
         <Route path='/about' element={<p>About</p>} />
         <Route path='/services' element={<p>Services</p>} />
         <Route path='/blogs' element={<Blogs />} />
-        <Route path='/purchase/:name' element={<PrivateRoute><Purchase /></PrivateRoute>} />
+        <Route path='/purchase/:id' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
           <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
