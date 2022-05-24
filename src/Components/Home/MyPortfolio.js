@@ -14,7 +14,7 @@ const MyPortfolio = () => {
                     <div class="card-body">
                         <h2 class="card-title">Phone Finder</h2>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary"><a href="https://nahidsultan19.github.io/find-phone-app-JS-API/" target="_blank">Check the Project</a></button>
+                            <button class="btn btn-primary"><a href="https://nahidsultan19.github.io/find-phone-app-JS-API/" target="_blank">Live Site</a></button>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@ const MyPortfolio = () => {
                     <div class="card-body">
                         <h2 class="card-title">Lucky One</h2>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary"><a href="https://computer-accessories-store-react.netlify.app/" target="_blank">Check the Project</a></button>
+                            <button class="btn btn-primary"><a href="https://computer-accessories-store-react.netlify.app/" target="_blank">Live Site</a></button>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@ const MyPortfolio = () => {
                     <div class="card-body">
                         <h2 class="card-title">Independent Service</h2>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary"><a href="https://independent-service-prov-f9fbf.web.app/" target="_blank">Check the Project</a></button>
+                            <button class="btn btn-primary"><a href="https://independent-service-prov-f9fbf.web.app/" target="_blank">Live Site</a></button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ const MyPortfolio = () => {
                     <div class="card-body">
                         <h2 class="card-title">Vehicle Inventory System</h2>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary"><a href="https://vehicle-inventory-2e22b.web.app/" target="_blank">Check the Project</a></button>
+                            <button class="btn btn-primary"><a href="https://vehicle-inventory-2e22b.web.app/" target="_blank">Live Site</a></button>
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,7 @@ import Blogs from './Components/Home/Blogs';
 import AddProduct from './Components/Dashboard/AddProduct';
 import Payment from './Components/Dashboard/Payment';
 import MyPortfolio from './Components/Home/MyPortfolio';
+import NotFound from './Shared/NotFound';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<p>About</p>} />
         <Route path='/portfolio' element={<MyPortfolio />} />
-        {/* <Route path='/services' element={<p>Services</p>} /> */}
+        <Route path='/services' element={<p>Services</p>} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/purchase/:id' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
@@ -45,6 +46,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />
