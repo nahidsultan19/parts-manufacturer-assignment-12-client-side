@@ -21,6 +21,7 @@ import AddProduct from './Components/Dashboard/AddProduct';
 import Payment from './Components/Dashboard/Payment';
 import MyPortfolio from './Components/Home/MyPortfolio';
 import NotFound from './Shared/NotFound';
+import ManageProducts from './Components/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
           <Route path='profile' element={<Profile />} />
           <Route path='manage-orders' element={<p>Manage all Orders</p>} />
           <Route path='add-product' element={<AddProduct />} />
-          <Route path='manage-product' element={<p>Manage Product</p>} />
+          <Route path='manage-product' element={<ManageProducts />} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />
         </Route>
         <Route path='/login' element={<Login />} />
