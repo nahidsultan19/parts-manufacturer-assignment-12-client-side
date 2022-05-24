@@ -19,6 +19,7 @@ import RequireAdmin from './Components/Login/RequireAdmin';
 import Blogs from './Components/Home/Blogs';
 import AddProduct from './Components/Dashboard/AddProduct';
 import Payment from './Components/Dashboard/Payment';
+import MyPortfolio from './Components/Home/MyPortfolio';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<p>About</p>} />
-        <Route path='/services' element={<p>Services</p>} />
+        <Route path='/portfolio' element={<MyPortfolio />} />
+        {/* <Route path='/services' element={<p>Services</p>} /> */}
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/purchase/:id' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
