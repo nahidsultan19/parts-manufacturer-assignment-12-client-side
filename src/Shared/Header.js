@@ -15,7 +15,7 @@ const Header = () => {
     const nav = <>
         <li><NavLink to='/home'>Home</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
-        <li><NavLink to='/services'>Services</NavLink></li>
+        {/* <li><NavLink to='/services'>Services</NavLink></li> */}
         <li><NavLink to='/contact'>Contact</NavLink></li>
         <li><NavLink to='/blogs'>Blogs</NavLink></li>
         {user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}
