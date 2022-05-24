@@ -10,11 +10,12 @@ const Purchase = (id) => {
     const [part, setPart] = useState({});
 
     // useEffect(() => {
-    //     const url = `http://localhost:5000/part/${id}`;
+    //     const url = `http://localhost:5000/part/${name}`;
+    //     console.log(url);
     //     fetch(url)
     //         .then(res => res.json())
     //         .then(data => console.log(data))
-    // }, [id])
+    // }, [name])
 
     const handleOrder = event => {
         event.preventDefault()

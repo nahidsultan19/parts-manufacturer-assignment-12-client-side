@@ -18,6 +18,7 @@ import Users from './Components/Dashboard/Users';
 import RequireAdmin from './Components/Login/RequireAdmin';
 import Blogs from './Components/Home/Blogs';
 import AddProduct from './Components/Dashboard/AddProduct';
+import Payment from './Components/Dashboard/Payment';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>
           <Route index element={<MyOrders />} />
           <Route path='add-review' element={<AddReview />} />
+          <Route path='payment/:id' element={<Payment />} />
           <Route path='profile' element={<Profile />} />
           <Route path='manage-orders' element={<p>Manage all Orders</p>} />
           <Route path='add-product' element={<AddProduct />} />
