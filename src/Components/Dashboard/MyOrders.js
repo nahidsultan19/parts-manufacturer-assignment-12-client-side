@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
-const MyOrders = () => {
+const MyOrders = (id) => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
     const [isReload, setIsReload] = useState(false)
@@ -19,6 +19,8 @@ const MyOrders = () => {
                 .then(data => setOrders(data))
         }
     }, [user, isReload])
+
+
 
     const handleOrderDelete = id => {
         console.log(id);
@@ -54,7 +56,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((order, index) => <tr>
+                            orders?.map((order, index) => <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{order.userName}</td>
                                 <td>{order.email}</td>
@@ -64,7 +66,10 @@ const MyOrders = () => {
                                 <td>
                                     {!order.paid && <button onClick={() => handleOrderDelete(order._id)} class="btn btn-xs">Delete</button>}
                                     {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-xs btn-success">Pay</button></Link>}
-                                    {order.paid && <span className='text-green-500'>Paid</span>}
+                                    {order.paid && <div>
+                                        <p><span className='text-green-500'>Paid</span></p>
+                                        <p>TransactionId: <span className='text-green-500'>{order.transactionId}</span></p>
+                                    </div>}
                                 </td>
                             </tr>)
                         }
