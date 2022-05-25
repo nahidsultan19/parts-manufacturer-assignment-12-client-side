@@ -8,6 +8,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
     const [parts, setParts] = useState({});
+    const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
         const url = `http://localhost:5000/parts/${id}`;
@@ -44,32 +45,36 @@ const Purchase = () => {
             })
     }
 
+    const handleQuantity = event => {
+        const quantity = event.target.value;
+        setQuantity(quantity);
+    }
 
     return (
         <div className='min-h-screen w-80 mx-auto'>
             {/* <h2 className='text-center text-2xl'>Purchase: {id}</h2> */}
-            <label for="my-modal-3" class="btn modal-button w-full max-w-xs my-10">Parts Detail</label>
+            <label htmlFor="my-modal-3" className="btn modal-button w-full max-w-xs my-10">Parts Detail</label>
 
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <img className='w-80' src={parts.img} alt="" />
-                    <h3 class="text-2xl font-bold">{parts.name}</h3>
-                    <p class="py-4">Price:${parts.price}</p>
+                    <h3 className="text-2xl font-bold">{parts.name}</h3>
+                    <p className="py-4">Price:${parts.price}</p>
                     <p>minQuantity:{parts.minQuantity}</p>
                     <p>availableQuantity:{parts.availableQuantity}</p>
                 </div>
             </div>
 
             <form onSubmit={handleOrder}>
-                <input type="text" value={user?.displayName} class="input input-bordered w-full max-w-xs" />
-                <input type="text" value={user?.email} class="input input-bordered w-full max-w-xs mt-2" disabled />
-                <input type="text" name='address' placeholder="address" class="input input-bordered w-full max-w-xs mt-2" />
-                <input type="text" name='phone' placeholder="Phone" class="input input-bordered w-full max-w-xs mt-2" />
-                <input type="number" name='quantity' class="input input-bordered w-full max-w-xs mt-2" />
+                <input type="text" value={user?.displayName} className="input input-bordered w-full max-w-xs" />
+                <input type="text" value={user?.email} className="input input-bordered w-full max-w-xs mt-2" disabled />
+                <input type="text" name='address' placeholder="address" className="input input-bordered w-full max-w-xs mt-2" />
+                <input type="text" name='phone' placeholder="Phone" className="input input-bordered w-full max-w-xs mt-2" />
+                <input onChange={handleQuantity} type="number" name='quantity' value={quantity} className="input input-bordered w-full max-w-xs mt-2" />
 
-                <button class="btn w-full max-w-xs mt-2">place order</button>
+                <button disabled={(quantity < 10 || quantity > 50) ? true : false} className="btn w-full max-w-xs mt-2">place order</button>
             </form>
         </div >
     );

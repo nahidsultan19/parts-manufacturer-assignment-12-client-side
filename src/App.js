@@ -22,6 +22,7 @@ import Payment from './Components/Dashboard/Payment';
 import MyPortfolio from './Components/Home/MyPortfolio';
 import NotFound from './Shared/NotFound';
 import ManageProducts from './Components/Dashboard/ManageProducts';
+import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
           <Route path='payment/:id' element={<Payment />} />
           <Route path='profile' element={<Profile />} />
           <Route path='profile-update/:email' element={<p>Update</p>} />
-          <Route path='manage-orders' element={<p>Manage all Orders</p>} />
+          <Route path='manage-orders' element={<ManageAllOrders />} />
           <Route path='add-product' element={<AddProduct />} />
           <Route path='manage-product' element={<ManageProducts />} />
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>} />

@@ -16,6 +16,7 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
 
+
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true })
@@ -27,16 +28,16 @@ const Login = () => {
     };
 
     return (
-        <div class="hero-content min-h-screen flex-col lg:flex-row-reverse">
-            <div class="card flex-shrink-0 shadow-2xl bg-base-100">
-                <div class="card-body">
+        <div className="hero-content min-h-screen flex-col lg:flex-row-reverse">
+            <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+                <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="Your Email" class="input input-bordered w-full max-w-xs"{...register("email", {
+                            <input type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs"{...register("email", {
                                 required: {
                                     value: true,
                                     message: 'Email is required'
@@ -46,16 +47,16 @@ const Login = () => {
                                     message: 'Provide a valid email'
                                 }
                             })} />
-                            <label class="label">
-                                {errors.email?.type === 'required' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
+                            <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="Your Password" class="input input-bordered w-full max-w-xs"{...register("password", {
+                            <input type="password" placeholder="Your Password" className="input input-bordered w-full max-w-xs"{...register("password", {
                                 required: {
                                     value: true,
                                     message: 'Password is required'
@@ -65,16 +66,16 @@ const Login = () => {
                                     message: 'Should be 6 characters or longer'
                                 }
                             })} />
-                            <label class="label">
-                                {errors.password?.type === 'required' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span class="label-text-alt text-red-500">{errors.password.message}</span>}
+                            <label className="label">
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-                        <button class="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
+                        <button className="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
                     </form>
                     <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Create an Account</Link></p>
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn btn-outline w-full">Continue with google</button>
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline w-full">Continue with google</button>
                 </div>
             </div>
         </div>

@@ -2,12 +2,20 @@ import React from 'react';
 
 const Alert = () => {
     return (
-        <div class="alert alert-error shadow-lg">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>Are you sure, you want to delete?</span>
+        <div>
+            <label for="confirm-delete" class="btn modal-button">open modal</label>
+
+            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+            <div class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
+                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <div class="modal-action">
+                        <label for="my-modal-6" class="btn">Yay!</label>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div >
     );
 };
 

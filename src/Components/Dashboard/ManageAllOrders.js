@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
-import auth from '../../firebase.init';
 
-const MyOrders = (id) => {
+const ManageAllOrders = () => {
     const [orders, setOrders] = useState([]);
-    const [user] = useAuthState(auth);
-    const [isReload, setIsReload] = useState(false)
+    const [shipped, setShipped] = useState('')
+    const [pending, setPending] = useState('')
+    const [isReload, setIsReload] = useState(false);
     useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => setOrders(data))
-        }
-    }, [user, isReload])
+        fetch('http://localhost:5000/orders', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => setOrders(data))
+    }, [isReload])
 
-
-
-    const handleOrderDelete = id => {
+    const handleItemDelete = id => {
         console.log(id);
         const confirm = window.confirm('Are you sure,you want to delete?');
         if (confirm) {
@@ -38,9 +32,15 @@ const MyOrders = (id) => {
         }
     }
 
+    const handleOrderConfirm = id => {
+        console.log(pending ? 'shipped' : 'pending')
+        setPending(pending ? 'shipped' : 'pending');
+
+    }
+
     return (
         <div>
-            <h2>My Orders:{orders.length}</h2>
+            <h2>All Orders:{orders.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -64,11 +64,12 @@ const MyOrders = (id) => {
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
                                 <td>
-                                    {!order.paid && <button onClick={() => handleOrderDelete(order._id)} className="btn btn-xs">Delete</button>}
-                                    {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-xs btn-success">Pay</button></Link>}
+                                    {(order.price && !order.paid) && <div>
+                                        <span className="btn btn-xs btn-warning">Unpaid</span>
+                                        <button onClick={() => handleItemDelete(order._id)} className='btn btn-xs'>Delete</button>
+                                    </div>}
                                     {order.paid && <div>
-                                        <p><span className='text-green-500'>Paid</span></p>
-                                        <p>TransactionId: <span className='text-green-500'>{order.transactionId}</span></p>
+                                        <button onClick={() => handleOrderConfirm(order._id)} className='btn btn-xs btn-error'>Pending</button>
                                     </div>}
                                 </td>
                             </tr>)
@@ -77,8 +78,8 @@ const MyOrders = (id) => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 
-export default MyOrders;
+export default ManageAllOrders;
