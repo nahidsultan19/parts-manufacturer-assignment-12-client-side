@@ -19,6 +19,7 @@ const Profile = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
+
         const url = `http://localhost:5000/profile/${user.email}`;
         fetch(url, {
             method: 'PUT',
@@ -46,8 +47,10 @@ const Profile = () => {
                 </div>
                 <div className='ml-5'>
 
-                    <h1 class="text-5xl font-bold">{user?.displayName ? user.displayName : 'No Name'}</h1>
-                    <p class="py-6">{user?.email}</p>
+                    {profile?.map(pro => <div>
+                        <h1 class="text-5xl font-bold">{user?.displayName ? user.displayName : 'No Name'}</h1>
+                        <p class="py-6">{user?.email}</p>
+                    </div>)}
 
                 </div>
             </div>
