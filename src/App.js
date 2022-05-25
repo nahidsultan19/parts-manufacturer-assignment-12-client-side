@@ -40,6 +40,7 @@ function App() {
           <Route path='add-review' element={<AddReview />} />
           <Route path='payment/:id' element={<Payment />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='profile-update/:email' element={<p>Update</p>} />
           <Route path='manage-orders' element={<p>Manage all Orders</p>} />
           <Route path='add-product' element={<AddProduct />} />
           <Route path='manage-product' element={<ManageProducts />} />

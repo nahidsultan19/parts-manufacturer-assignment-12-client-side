@@ -6,6 +6,7 @@ const CheckoutForm = ({ order }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
+    const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
 
@@ -65,13 +66,14 @@ const CheckoutForm = ({ order }) => {
 
         } else {
             setCardError('');
+            setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
             setSuccess('Your payment is completed')
         }
     }
 
     return (
-        <>
+        <div>
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
@@ -89,7 +91,7 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-5' type="submit" disabled={!stripe}>
+                <button className='btn btn-success btn-sm mt-5' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>
@@ -97,9 +99,12 @@ const CheckoutForm = ({ order }) => {
                 cardError && <p className='text-red-500'>{cardError}</p>
             }
             {
-                success && <p className='text-green-500'>{success}</p>
+                success && <div className='text-green-500'>
+                    <p>{success}</p>
+                    <p>Your transaction id: <span className='text-orange-500'>{transactionId}</span></p>
+                </div>
             }
-        </>
+        </div>
     );
 };
 
