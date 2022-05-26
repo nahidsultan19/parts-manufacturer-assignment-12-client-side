@@ -31,9 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/about' element={<p>About</p>} />
         <Route path='/portfolio' element={<MyPortfolio />} />
-        <Route path='/services' element={<p>Services</p>} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/purchase/:id' element={<PrivateRoute><Purchase /></PrivateRoute>} />
         <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>}>

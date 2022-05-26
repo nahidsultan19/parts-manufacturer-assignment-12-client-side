@@ -14,7 +14,7 @@ const Header = () => {
 
     const nav = <>
         <li><NavLink to='/home'>Home</NavLink></li>
-        <li><NavLink to='/about'>About</NavLink></li>
+        {/* <li><NavLink to='/about'>About</NavLink></li> */}
         {/* <li><NavLink to='/services'>Services</NavLink></li> */}
         {/* <li><NavLink to='/contact'>Contact</NavLink></li> */}
         <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
@@ -35,7 +35,7 @@ const Header = () => {
                         {nav}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Parts Store</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Parts Manufacturer</Link>
             </div>
             <div className="navbar hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

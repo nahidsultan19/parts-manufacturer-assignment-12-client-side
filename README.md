@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-## Parts Store
+## Parts Manufacturer
 ## Live Website Link
 [https://parts-manufacturer-90332.web.app/](https://parts-manufacturer-90332.web.app/)
 
@@ -18,6 +18,7 @@ Project Descriptions
 - Inside nested route admin could add new product, manage all product and manage all order and admin can change user role.
 - Using NodeJS/Express for backend
 - MongoDB for data storage
+- Implement jwt for security
 
 Technology use for this project
 - React Router.

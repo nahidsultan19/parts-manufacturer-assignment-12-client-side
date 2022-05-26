@@ -26,7 +26,6 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <h2>Manage Products:{products.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>

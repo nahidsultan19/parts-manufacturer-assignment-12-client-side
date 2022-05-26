@@ -5,12 +5,13 @@ import Loading from '../../Shared/Loading';
 
 const Profile = () => {
     const [user, isLoading] = useAuthState(auth)
-    const [profile, setProfile] = useState({});
-    useEffect(() => {
-        fetch(`http://localhost:5000/profile/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setProfile(data))
-    }, [user])
+    const [profiles, setProfiles] = useState([]);
+    // useEffect(() => {
+    //     const email = user?.email;
+    //     fetch(`http://localhost:5000/profile/email${email}`)
+    //         .then(res => res.json())
+    //         .then(data => setProfiles(data))
+    // }, [user])
 
     if (isLoading) {
         return <Loading />
@@ -25,6 +26,7 @@ const Profile = () => {
             phone: event.target.phone.value
         }
 
+
         const url = `http://localhost:5000/profile/${user?.email}`;
         fetch(url, {
             method: 'PUT',
@@ -35,7 +37,7 @@ const Profile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log(data.userProfile);
                 event.target.reset('');
             })
     }
@@ -51,11 +53,12 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className='ml-5'>
-                    <h1 className="text-5xl font-bold">{user?.displayName ? user.displayName : 'No Name'}</h1>
+                    <h1 className="text-5xl font-bold">{user?.displayName ? user?.displayName : 'No Name'}</h1>
                     <p className="py-6">{user?.email}</p>
-
-
-
+                    {/* {profiles.map(profile => <div>
+                        <p>{profile.address}</p>
+                        <p>{profile.phone}</p>
+                    </div>)} */}
                 </div>
             </div>
 

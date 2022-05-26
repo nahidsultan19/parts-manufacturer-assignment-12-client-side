@@ -40,7 +40,6 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <h2>All Orders:{orders.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
