@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
+import Loading from '../../Shared/Loading';
 const Register = () => {
     const [updateProfile] = useUpdateProfile(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -18,6 +19,10 @@ const Register = () => {
     if (token) {
         // console.log(user || googleUser);
         navigate('/')
+    }
+
+    if (loading || googleLoading) {
+        return <Loading />
     }
 
     const onSubmit = async data => {

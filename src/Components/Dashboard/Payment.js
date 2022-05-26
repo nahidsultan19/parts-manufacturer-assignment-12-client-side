@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
+import Loading from '../../Shared/Loading';
 
 const stripePromise = loadStripe('pk_test_51L0ehtLbhQEWKnEMXeoJeEJfrTID8adEKc5oWcPNZF2sCOu2Mc0Zge5llWFSD61ODZxsVB2MaFJsewkDGiOgrvqF005JmRVw4z');
 
@@ -18,7 +19,7 @@ const Payment = () => {
     }).then(res => res.json()))
 
     if (isLoading) {
-        return <p>Loading..</p>
+        return <Loading />
     }
 
     return (

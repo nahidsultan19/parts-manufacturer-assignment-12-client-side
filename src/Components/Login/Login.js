@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import useToken from '../../hooks/useToken';
+import Loading from '../../Shared/Loading';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -22,6 +23,10 @@ const Login = () => {
             navigate(from, { replace: true })
         }
     }, [token, from, navigate])
+
+    if (loading || googleLoading) {
+        return <Loading />
+    }
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);

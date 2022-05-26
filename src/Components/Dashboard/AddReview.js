@@ -6,7 +6,6 @@ const AddReview = () => {
         event.preventDefault();
         const number = event.target.number.value;
         const review = event.target.review.value;
-        console.log(number, review);
         const result = { number, review }
         fetch('http://localhost:5000/review', {
             method: 'POST',

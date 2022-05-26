@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import Loading from '../../Shared/Loading';
 
 const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
@@ -44,6 +45,10 @@ const CheckoutForm = ({ order }) => {
             type: 'card',
             card
         });
+
+        if (processing) {
+            return <Loading />
+        }
 
         setCardError(error?.message || '');
         setSuccess('');

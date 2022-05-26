@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../../Shared/Loading';
 
 const Profile = () => {
     const [user, isLoading] = useAuthState(auth)
@@ -12,7 +13,7 @@ const Profile = () => {
     }, [user])
 
     if (isLoading) {
-        return <p>Loading..</p>
+        return <Loading />
     }
 
     const handleUpdateProfile = (event) => {

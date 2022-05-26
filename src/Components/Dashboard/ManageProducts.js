@@ -10,7 +10,6 @@ const ManageProducts = () => {
     }, [isReload]);
 
     const handleItemDelete = id => {
-        console.log(id)
         const confirmDelete = window.confirm('Are you sure you want to delete?');
         if (confirmDelete) {
             const url = `http://localhost:5000/parts-delete/${id}`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
@@ -9,8 +10,9 @@ const Users = () => {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
+
     if (isLoading) {
-        return <p>Loading...</p>
+        return <Loading />
     }
     return (
         <div>
