@@ -4,7 +4,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
     const [isReload, setIsReload] = useState(false)
     useEffect(() => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://intense-mountain-68049.herokuapp.com/parts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [isReload]);
@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const handleItemDelete = id => {
         const confirmDelete = window.confirm('Are you sure you want to delete?');
         if (confirmDelete) {
-            const url = `http://localhost:5000/parts-delete/${id}`;
+            const url = `https://intense-mountain-68049.herokuapp.com/parts-delete/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

@@ -7,7 +7,7 @@ const AddReview = () => {
         const number = event.target.number.value;
         const review = event.target.review.value;
         const result = { number, review }
-        fetch('http://localhost:5000/review', {
+        fetch('https://intense-mountain-68049.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

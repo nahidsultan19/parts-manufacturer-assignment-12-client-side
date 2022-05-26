@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
     const [pending, setPending] = useState('')
     const [isReload, setIsReload] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/orders', {
+        fetch('https://intense-mountain-68049.herokuapp.com/orders', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
         console.log(id);
         const confirm = window.confirm('Are you sure,you want to delete?');
         if (confirm) {
-            const url = `http://localhost:5000/order-delete/${id}`;
+            const url = `https://intense-mountain-68049.herokuapp.com/order-delete/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

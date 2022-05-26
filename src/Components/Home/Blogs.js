@@ -3,7 +3,7 @@ import code from '../../assets/images/code.png';
 
 const Blogs = () => {
     return (
-        <div className='max-w-lg mx-auto min-h-screen'>
+        <div className='max-w-lg mx-auto min-h-screen my-10'>
             <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mt-10">
                 <div class="collapse-title text-xl font-medium">
                     How will you improve the performance of a React Application?
