@@ -52,7 +52,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className='ml-5'>
-                    <h1 className='text-5xl font-bold'>{profiles.name}</h1>
+                    <h1 className='text-3xl font-bold'>{user?.displayName}</h1>
                     <h2 className='pt-4'>{user?.email}</h2>
                     <h3 className='font-2xl'>Phone: {profiles.phone}</h3>
                     <h4>Address: {profiles.address}</h4>
