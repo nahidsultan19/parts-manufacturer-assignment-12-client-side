@@ -17,7 +17,6 @@ const Register = () => {
     console.log(user);
 
     if (token) {
-        // console.log(user || googleUser);
         navigate('/')
     }
 
@@ -26,10 +25,8 @@ const Register = () => {
     }
 
     const onSubmit = async data => {
-        console.log(data.name)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name })
-        console.log(data);
         navigate('/')
     };
 

@@ -19,7 +19,6 @@ const Part = ({ part }) => {
                 <p>{des}</p>
                 <h4 className='text-xl'>Price:${price}</h4>
                 <div className='text-xl'>
-                    {/* <p>minQuantity:{minQuantity}</p> */}
                     <p>availableQuantity:{availableQuantity}</p>
                 </div>
                 <div class="card-actions">

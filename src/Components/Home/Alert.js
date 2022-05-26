@@ -4,7 +4,6 @@ const Alert = () => {
     return (
         <div>
             <label for="confirm-delete" class="btn modal-button">open modal</label>
-
             <input type="checkbox" id="my-modal-6" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
