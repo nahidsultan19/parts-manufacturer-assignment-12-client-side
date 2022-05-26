@@ -3,6 +3,33 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+## Parts Store
+## Live Website Link
+[https://parts-manufacturer-90332.web.app/](https://parts-manufacturer-90332.web.app/)
+
+Project Descriptions
+- User could login and Register using email and password.
+- User could signin/register using socail account such as - google, github,etc.
+- After create an account user could add new item
+- In purchase page user can increase/decrease order qunatity but can not order less than 10 and grater than 50 product.
+- Used nested route for dashboard.
+- Inside nested route normal user  could see their profile, add review,and their own orders page.Also use could delete their order.
+- For this project use stripe pay system. user could pay via stripe account using many cards.
+- Inside nested route admin could add new product, manage all product and manage all order and admin can change user role.
+- Using NodeJS/Express for backend
+- MongoDB for data storage
+
+Technology use for this project
+- React Router.
+- React Icons.
+- Tailwind CSS.
+- DaisyUI.
+- Firebase.
+- React Firebase Hooks.
+- React hook form.
+- React Toastify.
+- stripe paymnet.
+- Heroku.
 
 In the project directory, you can run:
 

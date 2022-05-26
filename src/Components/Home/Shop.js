@@ -30,7 +30,7 @@ const Shop = () => {
                     <div className='flex'>
                         <img className='w-28 h-28 items-center' src={gift} alt="Shoes" />
                         <div class="card-body">
-                            <h2 class="card-title">Free Shipping</h2>
+                            <h2 class="card-title">Gift Voucher</h2>
                             <p>Gift to you for product add everyday</p>
                         </div>
                     </div>
