@@ -7,6 +7,27 @@ import portfolio4 from '../../assets/portfolio/vehicle-inventory.png';
 const MyPortfolio = () => {
     return (
         <div className='min-h-screen'>
+            <div class="card max-w-lg mx-auto bg-base-200 shadow-xl my-10">
+                <div class="card-body">
+                    <h2 class="card-title font-bold text-primary">NAHID SULTAN</h2>
+                    <h4>sultannahid38@gmail.com</h4>
+                    <p className='text-2xl'>Skills:</p>
+                    <div className='grid grid-cols-3 md:grid-cols-4 gap-2'>
+                        <span class="badge badge-lg">JavaScript</span>
+                        <span class="badge badge-lg">React</span>
+                        <span class="badge badge-lg">Python</span>
+                        <span class="badge badge-lg">Django</span>
+                        <span class="badge badge-lg">HTML</span>
+                        <span class="badge badge-lg">CSS</span>
+                        <span class="badge badge-lg">Bootstrap</span>
+                        <span class="badge badge-lg">Tailwind</span>
+                        <span class="badge badge-lg">Git</span>
+                        <span class="badge badge-lg">Github</span>
+                    </div>
+
+                </div>
+            </div>
+            {/* project list */}
             <h2 className='text-center text-2xl font-bold text-primary my-4'>My Simple Portfolio Project</h2>
             <div className='grid grid-cols-1 md:grid-cols-4 gap-5 my-12 mx-12'>
                 <div className="card max-w-lg bg-base-100 shadow-xl image-full max-h-60">
