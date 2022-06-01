@@ -29,7 +29,7 @@ const MyPortfolio = () => {
             </div>
             {/* project list */}
             <h2 className='text-center text-2xl font-bold text-primary my-4'>My Simple Portfolio Project</h2>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-5 my-12 mx-12 mb-12'>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-5 my-12 mx-12 mb-20'>
                 <div className="card max-w-lg bg-base-100 shadow-xl image-full max-h-60">
                     <figure><img src={portfolio1} alt="Shoes" /></figure>
                     <div className="card-body">
