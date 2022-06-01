@@ -7,7 +7,7 @@ const AddReview = () => {
         const number = event.target.number.value;
         const review = event.target.review.value;
         const result = { number, review }
-        fetch('https://intense-mountain-68049.herokuapp.com/review', {
+        fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -25,9 +25,9 @@ const AddReview = () => {
         <div className='w-96'>
             <h2 className='text-xl mt-4'>Add Your Review</h2>
             <form className='my-5' onSubmit={handleAddReview}>
-                <input type="number" name='number' class="input input-bordered w-full max-w-xs " />
-                <input type="text" name='review' placeholder="Your Review" class="input input-bordered w-full max-w-xs mt-2" />
-                <button class="btn mt-2">Add Review</button>
+                <input type="number" name='number' className="input input-bordered w-full max-w-xs " />
+                <input type="text" name='review' placeholder="Your Review" className="input input-bordered w-full max-w-xs mt-2" />
+                <button className="btn mt-2">Add Review</button>
             </form>
         </div>
     );

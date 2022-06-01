@@ -13,6 +13,8 @@ const Login = () => {
 
     const [token] = useToken(user || googleUser);
 
+    let errorElement;
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
@@ -28,6 +30,10 @@ const Login = () => {
         return <Loading />
     }
 
+    if (error || googleError) {
+        errorElement = <p className='text-red-500'>Error: {googleError?.message || error?.message}</p>
+    }
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
     };
@@ -37,7 +43,6 @@ const Login = () => {
             <div className="card flex-shrink-0 shadow-2xl bg-base-100">
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -76,6 +81,7 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
+                        {errorElement}
                         <button className="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
                     </form>
                     <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Create an Account</Link></p>

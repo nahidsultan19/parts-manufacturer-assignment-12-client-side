@@ -8,7 +8,7 @@ const Profile = () => {
     const [profiles, setProfiles] = useState([]);
     useEffect(() => {
         const email = user?.email;
-        fetch(`https://intense-mountain-68049.herokuapp.com/profile/${email}`)
+        fetch(`http://localhost:5000/profile/${email}`)
             .then(res => res.json())
             .then(data => setProfiles(data))
     }, [user, profiles])
@@ -27,7 +27,7 @@ const Profile = () => {
         }
 
 
-        const url = `https://intense-mountain-68049.herokuapp.com/profile/${user?.email}`;
+        const url = `http://localhost:5000/profile/${user?.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -46,9 +46,9 @@ const Profile = () => {
         <div className="hero mt-10">
             <div className="hero-content border rounded-md border-indigo-500">
                 <div className='avatar indicator'>
-                    <label htmlFor="my-modal-6" class="btn indicator-item  btn-xs btn-primary">edit</label>
+                    <label htmlFor="my-modal-6" className="btn indicator-item  btn-xs btn-primary">edit</label>
                     <div className='w-20 h-20'>
-                        <img src="https://api.lorem.space/image/movie?w=260&h=400" class=" mask mask-circle shadow-2xl" />
+                        <img src="https://api.lorem.space/image/movie?w=260&h=400" className=" mask mask-circle shadow-2xl" />
                     </div>
                 </div>
                 <div className='ml-5'>

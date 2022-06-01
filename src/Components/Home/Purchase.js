@@ -11,7 +11,7 @@ const Purchase = () => {
     const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
-        const url = `https://intense-mountain-68049.herokuapp.com/parts/${id}`;
+        const url = `http://localhost:5000/parts/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data))
@@ -30,7 +30,7 @@ const Purchase = () => {
 
         }
 
-        fetch('https://intense-mountain-68049.herokuapp.com/order', {
+        fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

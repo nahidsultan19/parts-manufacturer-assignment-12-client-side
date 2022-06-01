@@ -14,7 +14,7 @@ const Discount = () => {
                         <h2 className='text-2xl font-bold my-3'>Headphone</h2>
                         <h4 className='bg-[#a88ca0] p-2 rounded-md uppercase text-white text-lg mb-3'>save up to 30% off</h4>
                         <p>This is new item for discount</p>
-                        <button class="btn glass bg-purple-400 text-white mt-2">Shop now</button>
+                        <button className="btn glass bg-purple-400 text-white mt-2">Shop now</button>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const Discount = () => {
                         <h2 className='text-2xl font-bold my-3'>New Mouse</h2>
                         <h4 className='bg-[#759fcc] p-2 rounded-md uppercase text-white text-lg mb-3'>Wareless Mouse</h4>
                         <p>This is new item for discount</p>
-                        <button class="btn glass bg-purple-400 text-white mt-2">Shop now</button>
+                        <button className="btn glass bg-purple-400 text-white mt-2">Shop now</button>
                     </div>
                 </div>
             </div>
