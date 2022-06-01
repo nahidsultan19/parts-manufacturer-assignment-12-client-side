@@ -8,7 +8,7 @@ const Profile = () => {
     const [profiles, setProfiles] = useState([]);
     useEffect(() => {
         const email = user?.email;
-        fetch(`http://localhost:5000/profile/${email}`)
+        fetch(`https://intense-mountain-68049.herokuapp.com/profile/${email}`)
             .then(res => res.json())
             .then(data => setProfiles(data))
     }, [user, profiles])
@@ -27,7 +27,7 @@ const Profile = () => {
         }
 
 
-        const url = `http://localhost:5000/profile/${user?.email}`;
+        const url = `https://intense-mountain-68049.herokuapp.com/profile/${user?.email}`;
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
     const [pending, setPending] = useState('')
     const [isReload, setIsReload] = useState(false);
     useEffect(() => {
-        fetch('http://localhost:5000/orders', {
+        fetch('https://intense-mountain-68049.herokuapp.com/orders', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +20,7 @@ const ManageAllOrders = () => {
         console.log(id);
         const confirm = window.confirm('Are you sure,you want to delete?');
         if (confirm) {
-            const url = `http://localhost:5000/order-delete/${id}`;
+            const url = `https://intense-mountain-68049.herokuapp.com/order-delete/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -33,8 +33,8 @@ const ManageAllOrders = () => {
     }
 
     const handleOrderConfirm = id => {
-        console.log(pending ? 'shipped' : 'pending')
-        setPending(pending ? 'shipped' : 'pending');
+        console.log('shipped', id)
+        setPending(pending)
 
     }
 
@@ -68,7 +68,7 @@ const ManageAllOrders = () => {
                                         <button onClick={() => handleItemDelete(order._id)} className='btn btn-xs'>Delete</button>
                                     </div>}
                                     {order.paid && <div>
-                                        <button onClick={() => handleOrderConfirm(order._id)} className='btn btn-xs btn-error'>Pending</button>
+                                        <button onClick={() => handleOrderConfirm(order._id)} className='btn btn-xs btn-error'>pending</button>
                                     </div>}
                                 </td>
                             </tr>)

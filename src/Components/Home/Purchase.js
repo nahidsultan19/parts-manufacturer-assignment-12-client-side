@@ -11,7 +11,7 @@ const Purchase = () => {
     const [quantity, setQuantity] = useState(10);
 
     useEffect(() => {
-        const url = `http://localhost:5000/parts/${id}`;
+        const url = `https://intense-mountain-68049.herokuapp.com/parts/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data))
@@ -30,7 +30,7 @@ const Purchase = () => {
 
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://intense-mountain-68049.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -72,7 +72,6 @@ const Purchase = () => {
                 <input type="text" name='address' placeholder="address" className="input input-bordered w-full max-w-xs mt-2" />
                 <input type="text" name='phone' placeholder="Phone" className="input input-bordered w-full max-w-xs mt-2" />
                 <input onChange={handleQuantity} type="number" name='quantity' value={quantity} className="input input-bordered w-full max-w-xs mt-2" />
-
                 <button disabled={(quantity < 10 || quantity > 50) ? true : false} className="btn w-full max-w-xs mt-2">place order</button>
             </form>
         </div >
