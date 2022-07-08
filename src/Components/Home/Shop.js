@@ -6,7 +6,7 @@ import gift from '../../assets/images/gift.jpg';
 const Shop = () => {
     return (
         <div className=''>
-            <h2 className='text-center text-5xl font-bold'>Shop safely with parts store</h2>
+            <h2 className='text-center text-5xl font-bold text-primary'>Shop safely with parts store</h2>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mx-10 my-12'>
                 <div className="max-w-lg bg-base-100 border-2 p-1">
                     <div className='flex'>
