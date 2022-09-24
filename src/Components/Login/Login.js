@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -6,12 +6,18 @@ import { useForm } from "react-hook-form";
 import useToken from '../../hooks/useToken';
 import Loading from '../../Shared/Loading';
 
+import photo from '../../assets/images/banner.jpg';
+
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors, isValid }, handleSubmit } = useForm();
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
 
+    const [formStep, setFormStep] = useState(0);
+
+
     const [token] = useToken(user || googleUser);
+    console.log(token);
 
     let errorElement;
 
@@ -34,20 +40,31 @@ const Login = () => {
         errorElement = <p className='text-red-500'>Error: {googleError?.message || error?.message}</p>
     }
 
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
+        navigate('/')
+
     };
 
+    const completeForm = () => {
+        setFormStep(cur => cur + 1);
+
+    }
+
+
+
+
     return (
-        <div className="hero-content min-h-screen flex-col lg:flex-row-reverse">
-            <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="card flex-shrink-0 shadow-sm bg-base-100">
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form-control w-full max-w-xs">
+                        {formStep >= 0 && <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text font-bold">Email Address</span>
                             </label>
-                            <input type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs"{...register("email", {
+                            <input type="email" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-xs"{...register("email", {
                                 required: {
                                     value: true,
                                     message: 'Email is required'
@@ -58,13 +75,14 @@ const Login = () => {
                                 }
                             })} />
                             <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors?.email.message}</span>}
                             </label>
-                        </div>
-                        <div className="form-control w-full max-w-xs">
+
+                        </div>}
+                        {formStep >= 1 && <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text font-bold">Password</span>
                             </label>
                             <input type="password" placeholder="Your Password" className="input input-bordered w-full max-w-xs"{...register("password", {
                                 required: {
@@ -80,14 +98,18 @@ const Login = () => {
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
-                        </div>
+
+                        </div>}
                         {errorElement}
-                        <button className="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
+                        <button onClick={completeForm} className="btn btn-success text-white font-bold w-full max-w-xs">{formStep === 1 ? 'Login' : 'Next'}</button>
                     </form>
-                    <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Create an Account</Link></p>
+                    <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Sign Up</Link></p>
                     <div className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline w-full">Continue with google</button>
                 </div>
+            </div>
+            <div class="">
+                <img src={photo} class="max-w-lg rounded-lg" />
             </div>
         </div>
     );
