@@ -10,14 +10,13 @@ import photo from '../../assets/images/banner.jpg';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors, isValid }, handleSubmit } = useForm();
+    const { register, formState: { errors, isDirty, isValid }, handleSubmit } = useForm({ defaultValues: { email: '' }, mode: 'all' });
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
 
     const [formStep, setFormStep] = useState(0);
 
 
     const [token] = useToken(user || googleUser);
-    console.log(token);
 
     let errorElement;
 
@@ -43,22 +42,33 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
-        navigate('/')
+
 
     };
 
+
+    // multiform step
     const completeForm = () => {
         setFormStep(cur => cur + 1);
-
     }
 
+    const loginButton = () => {
+        if (formStep > 1) {
+            return;
 
+        } else if (formStep === 1) {
+            return (<button disabled={!isDirty && !isValid} type="submit" className="btn btn-success text-white font-bold w-full max-w-xs">Login</button>
+            )
+        } else {
+            return (<button disabled={!isDirty && !isValid} onClick={completeForm} className="btn btn-success text-white font-bold w-full max-w-xs">Next</button>)
+        }
+    }
 
 
     return (
         <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card flex-shrink-0 shadow-sm bg-base-100">
-                <div className="card-body">
+            <div className="flex-shrink-0 shadow-sm bg-base-200">
+                <div className="card-body w-96">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {formStep >= 0 && <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -73,7 +83,7 @@ const Login = () => {
                                     value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                                     message: 'Provide a valid email'
                                 }
-                            })} />
+                            })} autoFocus />
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors?.email.message}</span>}
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors?.email.message}</span>}
@@ -101,16 +111,17 @@ const Login = () => {
 
                         </div>}
                         {errorElement}
-                        <button onClick={completeForm} className="btn btn-success text-white font-bold w-full max-w-xs">{formStep === 1 ? 'Login' : 'Next'}</button>
+                        {/* <button disabled={!isDirty && !isValid} onClick={completeForm} className="btn btn-success text-white font-bold w-full max-w-xs">{formStep === 1 ? 'Login' : 'Next'}</button> */}
+                        {loginButton()}
                     </form>
-                    <p>Don't have an Account?<Link to='/register' className='btn btn-link'>Sign Up</Link></p>
+                    <p className='text-center'>Don't have an Account?<Link to='/register' className='btn btn-link'>Sign Up</Link></p>
                     <div className="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className="btn btn-outline w-full">Continue with google</button>
                 </div>
             </div>
-            <div class="">
-                <img src={photo} class="max-w-lg rounded-lg" />
-            </div>
+            {/* <div className="">
+                <img src={photo} className="max-w-lg h-96 rounded-lg" />
+            </div> */}
         </div>
     );
 };
