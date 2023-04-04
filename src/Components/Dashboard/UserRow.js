@@ -5,7 +5,7 @@ const UserRow = ({ user, refetch, index }) => {
     const { email, role } = user;
 
     const makeAdmin = () => {
-        fetch(`https://intense-mountain-68049.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://parts-manufacturer-server-side.vercel.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

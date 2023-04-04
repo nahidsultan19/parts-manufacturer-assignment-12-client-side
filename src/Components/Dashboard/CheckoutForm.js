@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, price, email, name, address } = order;
 
     useEffect(() => {
-        fetch('https://intense-mountain-68049.herokuapp.com/create-payment-intent', {
+        fetch('https://parts-manufacturer-server-side.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -83,7 +83,7 @@ const CheckoutForm = ({ order }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://intense-mountain-68049.herokuapp.com/order/${_id}`, {
+            fetch(`https://parts-manufacturer-server-side.vercel.app/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

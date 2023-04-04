@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L0ehtLbhQEWKnEMXeoJeEJfrTID8adEKc5oW
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://intense-mountain-68049.herokuapp.com/order/${id}`;
+    const url = `https://parts-manufacturer-server-side.vercel.app/order/${id}`;
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',
         headers: {

@@ -6,7 +6,7 @@ const AddProduct = () => {
     const { register, handleSubmit } = useForm();
 
     const handleAddProduct = item => {
-        fetch('https://intense-mountain-68049.herokuapp.com/parts', {
+        fetch('https://parts-manufacturer-server-side.vercel.app/parts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -4,7 +4,7 @@ import Loading from '../../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://intense-mountain-68049.herokuapp.com/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://parts-manufacturer-server-side.vercel.app/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

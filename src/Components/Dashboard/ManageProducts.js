@@ -4,7 +4,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
     const [isReload, setIsReload] = useState(false)
     useEffect(() => {
-        fetch('https://intense-mountain-68049.herokuapp.com/parts')
+        fetch('https://parts-manufacturer-server-side.vercel.app/parts')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [isReload]);
@@ -12,7 +12,7 @@ const ManageProducts = () => {
     const handleItemDelete = id => {
         const confirmDelete = window.confirm('Are you sure you want to delete?');
         if (confirmDelete) {
-            const url = `https://intense-mountain-68049.herokuapp.com/parts-delete/${id}`;
+            const url = `https://parts-manufacturer-server-side.vercel.app/parts-delete/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
