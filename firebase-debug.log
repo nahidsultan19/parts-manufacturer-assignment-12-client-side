@@ -1,0 +1,42 @@
+[debug] [2023-04-05T09:32:58.752Z] ----------------------------------------------------------------------
+[debug] [2023-04-05T09:32:58.755Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-05T09:32:58.755Z] CLI Version:   11.19.0
+[debug] [2023-04-05T09:32:58.756Z] Platform:      win32
+[debug] [2023-04-05T09:32:58.756Z] Node Version:  v16.13.1
+[debug] [2023-04-05T09:32:58.769Z] Time:          Wed Apr 05 2023 17:32:58 GMT+0800 (China Standard Time)
+[debug] [2023-04-05T09:32:58.769Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-05T09:32:58.774Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-04-05T09:32:58.893Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-05T09:32:58.894Z] > authorizing via signed-in user (sultannahid38@gmail.com)
+[debug] [2023-04-05T09:32:58.894Z] [iam] checking project parts-manufacturer-90332 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-05T09:32:58.896Z] > refreshing access token with scopes: []
+[debug] [2023-04-05T09:32:58.897Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-05T09:32:58.897Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-05T09:32:59.024Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-04-05T09:32:59.027Z] > refreshing access token with scopes: []
+[debug] [2023-04-05T09:32:59.029Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-04-05T09:32:59.030Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-04-05T09:32:59.880Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-04-05T09:32:59.881Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-04-05T09:33:20.097Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2023-04-05T09:33:20.342Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:144:12)
+    at refreshTokens (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:508:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Client.getAccessToken (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:149:23)
+    at async Client.addAuthHeader (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:140:21)
+    at async Client.request (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:96:34)
+    at async getFirebaseProject (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:295:21)
+    at async getDefaultHostingSite (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:74:9)
+    at async C:\Users\NAHID\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:214:17
+[error] 
+[error] Error: Failed to get Firebase project parts-manufacturer-90332. Please make sure the project exists and your account has permission to access it.
