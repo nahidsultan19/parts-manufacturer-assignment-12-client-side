@@ -1,13 +1,19 @@
 import React from 'react';
+import gift from '../../assets/images/gift.jpg';
 
 const Review = (props) => {
     const { name, review, number } = props.review;
     return (
-        <div className="card w-96 mx-auto bg-base-100 shadow-md">
-            <div className="card-body">
-                <h1>{name}</h1>
-                <h2 className="card-title">Rating:{number}</h2>
-                <p>{review}</p>
+        <div className='bg-slate-50 rounded-xl p-2 dark:bg-slate-800'>
+            <div className='flex'>
+                <img className='w-10 h-10 md:rounded-full' src={gift} alt="" />
+                <div className='px-3'>
+                    <h1>{name}</h1>
+                    <h2>Rating: {number}</h2>
+                </div>
+            </div>
+            <div className='py-3'>
+                <p>Review: {review}</p>
             </div>
         </div>
     );
